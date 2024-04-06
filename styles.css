@@ -1,0 +1,537 @@
+*{
+    font-family: sans-serif;
+    /*outline: 1px solid red;
+}
+img{
+    outline: 1px solid rgb(0, 0, 0);
+}
+div{
+    outline: 1px solid rgb(47, 0, 255);
+}
+button{
+    outline: 1px solid rgb(0, 255, 98);*/
+}
+body{
+    margin: 0;
+    overflow: hidden;
+}
+.main{ 
+    height: 100vh;
+    width: 100vw;
+}
+#start{
+    background-image: url(luffy.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+#start::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); 
+    pointer-events: none;
+  }
+#luffy{
+    background: linear-gradient(45deg, rgba(167,0,0,1) 0%, rgba(255,22,22,1) 50%, rgba(212,0,0,1) 100%);
+    z-index: 100;
+    overflow: hidden;
+}
+#gear2{
+    background: linear-gradient(-45deg, rgba(255,169,64,1) 0%, rgba(255,230,0,1) 50%, rgba(255,162,0,1) 100%);
+    z-index: 100;
+    overflow: hidden;
+}
+#gear3{
+    background: linear-gradient(45deg, rgba(19,0,104,1) 0%, rgba(77,0,104,1) 50%, rgba(99,0,104,1) 100%);
+    z-index: 100;
+    overflow: hidden;
+}
+#gear4{
+    /*background: linear-gradient(-45deg, rgb(78, 0, 55) 0%, rgba(8,0,23,1) 50%, rgba(21,0,38,1) 100%);
+    background: linear-gradient(45deg, rgba(8,0,23,1) 0%, rgba(170,0,120,1) 50%, rgba(208,0,74,1) 100%);*/
+    background: linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(8,0,23,1) 25%, rgba(48,0,56,1) 50%, rgba(170,0,120,1) 75%, rgba(208,0,74,1) 100%);
+    background-size: 200% 100%;
+    background-position: 0% 0%;
+    z-index: 100;
+    overflow: hidden;
+}
+@keyframes gear4_bg {
+    0%{
+        background-position: 0% 0%;
+    }
+    100%{
+        background-position: 100% 0%;
+    }
+}
+#gear5{
+    background-color: black;
+    z-index: 100;
+    overflow: hidden;
+}
+/*animations*/
+@keyframes buttongrow { /*this make the start buttons grow*/
+    to{width: 7em;
+        height: 3em;}
+}
+@keyframes buttongrow_ { /*this make the in button grow a little bit*/
+    to{width: 7.1em;
+        height: 3.05em;
+        transform: translateY(-0.05em);}
+}
+@keyframes movedown {
+    0%{opacity: 0;
+        transform: translateY(-5vh);}
+    100%{opacity: 1;
+        transform: translateY(0);}
+}
+@keyframes moveleft {
+    0%{opacity: 0;
+        transform: translateX(5vw);}
+    1000%{opacity: 1;
+        transform: translateX(0vw);}
+}
+@keyframes moveright {
+    0%{opacity: 0;
+        transform: translateX(-5vw);}
+    1000%{opacity: 1;
+        transform: translateX(0vw);}
+}
+@keyframes moveup {
+    0%{opacity: 0;
+        transform: translateY(5vh);}
+    100%{opacity: 1;
+        transform: translateY(0);}
+}
+@keyframes moveupS3 {
+    0%{opacity: 0;
+        transform: translate(8vw, 15vh);}
+    100%{opacity: 1;
+        transform: translate(8vw, 8vh);}
+}
+
+@keyframes swipeboundmanimg {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        transform: translate(-25vw, -1vh);
+        opacity: 0;
+    }
+}
+@keyframes swipeboundman {
+    0%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(-15vw);
+        opacity: 0;
+    }
+}
+@keyframes swipeboundmanbutton {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(23vh);
+        opacity: 0;
+    }
+}
+@keyframes swipeSnakemanimg {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(25vw, -1vh);
+        opacity: 0;
+    }
+}
+@keyframes swipeSnakeman {
+    0%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(15vw);
+        opacity: 0;
+    }
+}
+@keyframes swipeSnakebutton {
+    0%{
+        transform: translateY(0vh);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(10vh);
+        opacity: 0;
+    }
+
+}
+@keyframes moveleft_hover {
+    to{
+        background-position: 80% 0%;
+    }
+}
+@keyframes turnleftH {
+    to{padding-left: 2vw;}
+}
+@keyframes turnrightH {
+    to{padding-right: 2vw;}
+}
+@keyframes turnleftClick{
+    0%{
+        transform: translateX(0vw);
+    }
+    25%{
+        transform: translateX(2vw);
+    }
+    100%{
+        transform: translateX(-10vw);}
+}
+@keyframes turnrightClick{
+    0%{
+        transform: translate(0vw, -5vw);
+    }
+    25%{
+        transform: translate(-2vw, -5vw);
+    }
+    100%{
+        transform: translate(10vw, -5vw);
+    }
+}
+@keyframes g4startB_vanish {
+    0%{opacity: 1;
+        transform: translateY(0);}
+    100%{opacity: 0;
+        transform: translateY(-8vh);}
+
+}
+.layout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transform: translateY(-110%);
+    z-index: 200;
+}
+#oda{
+    position: sticky;
+    color: white;
+    font-size: 5em;
+    text-align: center;
+    width: 50%;
+    z-index: -50;
+    
+}
+#start{
+    height: 100vh;
+    width: 100vw;
+}
+#start_button {
+    width: 14vw;
+    height: 8vh;
+    border: 2px solid rgba(255, 255, 255, 0);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-weight: 900;
+    font-size: 2vh;
+    border-radius: 30px;
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out, border 0.4s ease-in-out;
+}
+#start_button:hover {
+    width: 17.5em;
+    height: 4.5em;
+    border: 2px solid rgb(0, 0, 0);
+}
+#luffyimg{
+    float: right;
+    height: 90vh;
+    padding-right: 6vw;
+    transform: translateY(-4vh);
+}
+.in{
+    width: 6vw;
+    height: 6vh;
+    border: 2px solid rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    border-radius: 20px;
+}
+.in:hover{
+    color: white;
+    border: 2px solid rgb(255, 255, 255);
+    background-color: rgba(255, 255, 255, 0);
+    animation: buttongrow_ 0.4s 1 forwards;                               /*ANIMATION*/
+}
+#in5:hover, #in2:hover{
+    border: 2px solid rgb(0, 0, 0);
+}
+.out{
+    width: 6vw;
+    height: 6vh;
+    border: 2px solid rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(255, 255, 255);
+    font-weight: 700;
+    font-size: 2vh;
+    border-radius: 20px;
+}
+.out:hover{
+    border: 2px solid rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    border-radius: 20px;
+    animation: buttongrow 0.4s 1 forwards;           /*ANIMATION*/
+}
+
+#start-buttons-container{
+    display: flex;
+    width:35vw;
+    justify-content: space-around;
+    row-gap: 10px;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+#luffy-dis{
+    margin-top: 6vh;
+    margin-left: 3vw;
+    width: 40vw;
+    height: 50vh;
+}
+.dis{
+    font-size: 1.2em;
+    font-weight: 500;
+    color: rgb(255, 255, 255);
+}
+.sectiontitle{
+    font-size: 4em;
+    width: 50vw;
+    font-weight: 1000;
+    color: rgb(255, 255, 255);
+}
+.watch {
+    width: 14vw;
+    height: 8vh;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-weight: 900;
+    font-size: 2vh;
+    border-radius: 30px;
+    transform: translateX(-12px);
+    border: 2px solid rgba(255, 255, 255, 0);
+    transition: width 0.4s ease-in-out, height 0.4s ease-in-out, transform 0.4s ease-in-out, border 0.4s ease-in-out;
+}
+.watch:hover {
+    width: 17em;
+    height: 4.5em;
+    transform: translateX(-12px);
+    border: 2px solid rgb(0, 0, 0);
+}
+
+/*gear2*/
+#gear2 #start-buttons-container{
+    margin-left: 55vw;
+}
+#gear2 #start-buttons-container button{
+    color: black;
+}
+#gear2img{
+    float: left;
+    height: 80vh;
+    padding-top: 10vh;
+    margin: 0;
+    transform: translateY(-9vh);
+}
+#gear2dis{
+    float: right;
+    width: 1vw;
+    margin-right: 35vw;
+    margin-top: 13vh;
+
+}
+#gear2dis pre{
+    color: black;
+    font-weight: 700;
+}
+#gear2dis h1{
+    color: black;
+    width: 20vw;
+}
+
+/*gear3*/
+#gear3 #start-buttons-container{
+    margin-left: 31vw;
+}
+#gear3img{
+    float: center;
+    height: 65vh;
+    margin: 0;
+    transform: translate(8vw, 8vh);
+}
+#gear3dis{
+    float: left;
+    width: 10vw;
+    padding-top: 2vh;
+    padding-left: 3vw;
+}
+#gear3dis2{
+    float: right;
+    width: 1vw;
+    transform: translateX(-20vw);
+    padding-top: 2vh;
+}
+#gear3dis h1{
+    width: 5vw;
+    height: 8vh;
+    margin-bottom: 10vh;
+}
+
+/*gear4 boundman*/
+#boundman, #gear4-dis, #gear4-dis h1,#gear4-dis pre,#gear4-boundman-dis,
+#gear4-boundman-dis h1,#gear4-boundman-dis pre,#gear4boundmandivbutton, #turnright,
+#boundman #start-buttons-container{
+    display: block; /*changes it to none but its block cause it have the div items and and text and stuff*/
+}
+#gear4-boundman-img{
+    display: inline; /*changes it to none but its inline because its an image*/
+    float:left;
+    height: 85vh;
+    padding-left: 1vw;
+    transform: translateY(-2vh);
+    margin: 0;
+}
+#boundman #start-buttons-container{
+    transform: translateX(48vw);
+}
+#gear4-dis{
+    float: left;
+    width:5vw;
+    height:50vh;
+    padding-left: 1vw;
+}
+#gear4-dis h1{
+    width: 10vw;
+}
+#gear4-boundman-dis{
+    float: left;
+    width:5vw;
+    height:50vh;
+    padding-left: 18vw;
+}
+#gear4-boundman-dis h1{
+    width: 10vw;
+}
+#gear4-boundman-dis button{
+    display: inline-block; /*changes it to none but its inline-block cause its a button*/
+}
+#gear4boundmandivbutton{
+    transform: translateX(-7.5vw)
+}
+#turnright{
+    transform: translateY(-5vw);
+    float: right;
+    width: 7vw;
+    height: 100vh;
+    text-align: center;
+}
+
+#turnright span{
+    font-size: 5em;
+    color: whitesmoke;
+    padding-top: 42vh;
+    padding-bottom: 42vh;
+}
+#turnrightarrow:hover{
+    animation: turnrightH 1s 1 forwards;
+}
+
+/*gear4 snakeman*/
+#snakeman, #gear4-snakeman-dis,#gear4-snakeman-dis h1,
+#gear4-snakeman-dis pre, #turnleft, #snakeman #start-buttons-container{
+    display: block; /*changes it to none but its block cause it have the div items and and text and stuff*/
+}
+#snakeman #start-buttons-container{
+    margin-left: 8vw;
+}
+#gear4-snakeman-img{
+    display: inline; /*changes it to none but its inline because its an image*/
+    float:right;
+    height: 85vh;
+    padding-right: 1vw;
+    transform: translateY(-2vh);
+    margin: 0;
+}
+#gear4-snakeman-dis button{
+    display: inline-block;  /*changes it to none but its inline-block cause its a button*/
+}
+#gear4-snakeman-dis{
+    float: right;
+    width:5vw;
+    height:50vh;
+    padding-top: 5vh;
+    transform: translateX(-45vw);
+
+}
+#gear4-snakeman-dis h1{
+    width: 10vw;
+}
+#turnleft{
+    float: left;
+    width: 7vw;
+    height: 100vh;
+    text-align: center;
+    
+}
+#turnleft:hover{
+    background: linear-gradient(90deg, rgba(14, 4, 20, 0.5) 5%, rgba(252,70,107,0) 100%);
+    background-size: 200% 200%;
+    background-position: 100% 0%;
+    animation: moveleft_hover 5s 1 forwards;
+}
+#turnleft span{
+    font-size: 5em;
+    color: whitesmoke;
+    padding-top: 42vh;
+    padding-bottom: 42vh;
+}
+#turnleft span:hover{
+    animation: turnleftH 1s 1 forwards;
+}
+
+/*gear5*/
+#gear5dis, #gear5dis h1, #gear5dis pre, #gear5 #start-buttons-container{
+    display: block; /*changes it to none but its block cause it have the div items and and text and stuff*/
+    color: black;
+}
+#gear5 #start-buttons-container{
+    margin-right: 5vw;
+}
+#gear5 #start-buttons-container button{
+    color: black;
+}
+#gear5img{
+    display: inline;  /*changes it to none but its inline because its an image*/
+    float:right;
+    height: 85vh;
+    padding-right: 1vw;
+    margin: 0;
+}
+#gear5dis{
+    float: left;
+    width:5vw;
+    height:50vh;
+    padding-top: 12vh;
+    padding-left: 4vw;
+}
+#gear5dis button{
+    display: inline-block; /*changes it to none but its inline-block cause its a button*/
+}
+

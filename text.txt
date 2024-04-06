@@ -1,0 +1,8 @@
+time to read:
+luffy : 48s
+gear2 : 18s
+gear3 : 40s 40s
+gear4 : 40s
+gear4B : 40s
+gear4S : 60s
+gear5 : 30s
